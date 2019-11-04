@@ -1,0 +1,3 @@
+[console_scripts]
+search_constants = moleculelookup.cli:search_constants
+
