@@ -19,10 +19,15 @@ def search_constants(filepath, constants, nitems):
     """
     Search a DataFrame for a set of target rotational constants.
     The constants must be in a set of three corresponding to A, B, C
-    in that specific order.
+    in that specific order, separated by spaces.
     
     The error reported here corresponds to the average percentage
     error across A, B, and C.
+    
+    Example
+    -------
+    
+    search_constants mol_dataframe.pkl 8000. 5000. 3000.
     
     Parameters
     ----------
