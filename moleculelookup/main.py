@@ -59,7 +59,7 @@ class MoleculeLookup:
         mol_lookup = cls(parser(path), loss=loss, labels=labels)
         return mol_lookup
     
-    def search_molecule(self, Y: np.ndarray, subset=["A", "B", "C", "kappa", "defect", "filename", "error"], nrows=10):
+    def search_molecule(self, Y: np.ndarray, subset=["A", "B", "C", "defect", "filename", "error", "formula"], nrows=10):
         """
         Look up the database for the nearest molecules matching the specified
         labels. The loss is computed with some predefined loss function, a few

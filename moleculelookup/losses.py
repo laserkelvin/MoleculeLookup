@@ -33,4 +33,4 @@ class PercentageError(LossFunction):
         super().__init__(y_true, name="percentage_error")
     
     def _loss_func(self, y_pred: np.ndarray):
-        return (self.y_true - y_pred) / self.y_true
+        return np.abs((self.y_true - y_pred) / self.y_true)

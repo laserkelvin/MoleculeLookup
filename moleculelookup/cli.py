@@ -15,7 +15,15 @@ from moleculelookup.main import MoleculeLookup
     help="Number of rows to return with the optimal answer",
     show_default=True
 )
-def search_constants(filepath, constants, nitems):
+@click.option(
+    "-e",
+    "--export",
+    "export",
+    default=False,
+    help="Whether to save the search results to file molecule_search_results.csv.",
+    show_default=True
+)
+def search_constants(filepath, constants, nitems, export):
     """
     Search a DataFrame for a set of target rotational constants.
     The constants must be in a set of three corresponding to A, B, C
@@ -45,5 +53,6 @@ def search_constants(filepath, constants, nitems):
         constants = [float(constant) for constant in constants]
     except ValueError:
         raise ValueError(f"Could not convert {constants} to floats.")
-    print(mol_lookup.search_molecule(constants))
-    
+    print(mol_lookup.search_molecule(constants, nrows=nitems))
+    if export is True:
+        mol_lookup.sorted_data.head(nitems).to_csv("molecule_search_results.csv")
