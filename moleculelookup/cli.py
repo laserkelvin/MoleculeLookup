@@ -19,7 +19,7 @@ from moleculelookup.main import MoleculeLookup
     "-e",
     "--export",
     "export",
-    default=False,
+    default=True,
     help="Whether to save the search results to file molecule_search_results.csv.",
     show_default=True
 )
